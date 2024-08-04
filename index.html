@@ -30,16 +30,19 @@
 </head>
 <body>
     <h1>Escolha sua Cor de iPhone</h1>
+    <div>
+        <input type="text" id="name" placeholder="Digite seu nome" required>
+    </div>
     <div class="phones">
-        <div class="phone" onclick="showResult('Azul')">
+        <div class="phone" onclick="submitChoice('Azul')">
             <img src="https://media.very.ie/i/littlewoodsireland/VPZ3E_SQ1_0000000020_BLUE_SLf?$300x400_retinamobilex2$&$roundel_lwireland$&p1_img=blank_apple" alt="iPhone Azul" width="150">
             <p>Azul</p>
         </div>
-        <div class="phone" onclick="showResult('Rosa')">
+        <div class="phone" onclick="submitChoice('Rosa')">
             <img src="https://hniesfp.imgix.net/8/images/detailed/659/MTP13ZDA.jpg?fit=fill&bg=0FFF&w=1500&h=1000&auto=format,compress" alt="iPhone Rosa" width="150">
             <p>Rosa</p>
         </div>
-        <div class="phone" onclick="showResult('Preto')">
+        <div class="phone" onclick="submitChoice('Preto')">
             <img src="https://media.very.ie/i/littlewoodsireland/VPZ3B_SQ1_0000000004_BLACK_SLf?$300x400_retinamobilex2$&$roundel_lwireland$&p1_img=blank_apple" alt="iPhone Preto" width="150">
             <p>Preto</p>
         </div>
@@ -47,6 +50,8 @@
     <div class="result" id="result"></div>
 
     <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzwQLskmo3fa7XeeQRibg3dbH3_c8BzAXNg8haTOVNDTat6QfltaHTdpnVezt0TC61p/exec'; // Substitua pelo URL do Web App gerado
+
         function showResult(color) {
             let resultText = '';
             switch (color) {
@@ -63,6 +68,25 @@
             const resultDiv = document.getElementById('result');
             resultDiv.innerText = resultText;
             resultDiv.style.display = 'block';
+        }
+
+        function submitChoice(color) {
+            const name = document.getElementById('name').value;
+            if (!name) {
+                alert('Por favor, digite seu nome.');
+                return;
+            }
+
+            showResult(color);
+
+            fetch(scriptURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name: name, color: color })
+            })
+            .then(response => response.text())
+            .then(data => console.log('Sucesso:', data))
+            .catch(error => console.error('Erro:', error));
         }
     </script>
 </body>
