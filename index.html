@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Escolha sua Cor de iPhone</title>
+    <title>Teste de Personalidade por Cor</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,6 +19,12 @@
             margin-top: 20px;
             font-size: 1.2em;
             display: none;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
         }
     </style>
 </head>
@@ -26,20 +32,16 @@
     <h1>Escolha sua Cor de iPhone</h1>
     <div class="phones">
         <div class="phone" onclick="showResult('Azul')">
-            <img src="blue-iphone.jpg" alt="iPhone Azul" width="150">
+            <img src="https://media.very.ie/i/littlewoodsireland/VPZ3E_SQ1_0000000020_BLUE_SLf?$300x400_retinamobilex2$&$roundel_lwireland$&p1_img=blank_apple" alt="iPhone Azul" width="150">
             <p>Azul</p>
         </div>
         <div class="phone" onclick="showResult('Rosa')">
-            <img src="pink-iphone.jpg" alt="iPhone Rosa" width="150">
+            <img src="https://hniesfp.imgix.net/8/images/detailed/659/MTP13ZDA.jpg?fit=fill&bg=0FFF&w=1500&h=1000&auto=format,compress" alt="iPhone Rosa" width="150">
             <p>Rosa</p>
         </div>
         <div class="phone" onclick="showResult('Preto')">
-            <img src="black-iphone.jpg" alt="iPhone Preto" width="150">
+            <img src="https://media.very.ie/i/littlewoodsireland/VPZ3B_SQ1_0000000004_BLACK_SLf?$300x400_retinamobilex2$&$roundel_lwireland$&p1_img=blank_apple" alt="iPhone Preto" width="150">
             <p>Preto</p>
-        </div>
-        <div class="phone" onclick="showResult('Prata')">
-            <img src="silver-iphone.jpg" alt="iPhone Prata" width="150">
-            <p>Prata</p>
         </div>
     </div>
     <div class="result" id="result"></div>
@@ -49,16 +51,13 @@
             let resultText = '';
             switch (color) {
                 case 'Azul':
-                    resultText = 'Você escolheu o Azul! Você é uma pessoa calma e serena.';
+                    resultText = 'Você escolheu o Azul! Isso revela uma personalidade calma e serena. Você valoriza a paz e a harmonia em sua vida. As pessoas confiam em você por seu caráter equilibrado e confiável. Você adora explorar novas ideias e tem uma imaginação vívida. O azul reflete sua capacidade de pensar claramente e manter a compostura mesmo em situações desafiadoras.';
                     break;
                 case 'Rosa':
-                    resultText = 'Você escolheu o Rosa! Você é uma pessoa alegre e cheia de vida.';
+                    resultText = 'Você escolheu o Rosa! Isso mostra que você é alegre, amigável e cheio de vida. O rosa reflete seu espírito otimista e sua capacidade de espalhar alegria onde quer que vá. Você tem um coração carinhoso e é conhecido por sua compaixão e empatia. Pessoas que escolhem o rosa costumam ser criativas e têm uma abordagem única para resolver problemas. Sua energia positiva é contagiante!';
                     break;
                 case 'Preto':
-                    resultText = 'Você escolheu o Preto! Você é sofisticada e elegante.';
-                    break;
-                case 'Prata':
-                    resultText = 'Você escolheu o Prata! Você é prática e moderna.';
+                    resultText = 'Você escolheu o Preto! Sua escolha reflete sofisticação e elegância. Você é uma pessoa que valoriza a profundidade e o mistério. O preto simboliza poder e autoridade, e aqueles que escolhem essa cor muitas vezes têm uma forte presença e são líderes naturais. Você aprecia a simplicidade, mas também gosta de explorar a complexidade do mundo ao seu redor. Seu estilo clássico é admirado por muitos.';
                     break;
             }
             const resultDiv = document.getElementById('result');
