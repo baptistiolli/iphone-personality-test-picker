@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha sua Cor de iPhone</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .phone {
+            display: inline-block;
+            margin: 10px;
+            cursor: pointer;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 1.2em;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>Escolha sua Cor de iPhone</h1>
+    <div class="phones">
+        <div class="phone" onclick="showResult('Azul')">
+            <img src="blue-iphone.jpg" alt="iPhone Azul" width="150">
+            <p>Azul</p>
+        </div>
+        <div class="phone" onclick="showResult('Rosa')">
+            <img src="pink-iphone.jpg" alt="iPhone Rosa" width="150">
+            <p>Rosa</p>
+        </div>
+        <div class="phone" onclick="showResult('Preto')">
+            <img src="black-iphone.jpg" alt="iPhone Preto" width="150">
+            <p>Preto</p>
+        </div>
+        <div class="phone" onclick="showResult('Prata')">
+            <img src="silver-iphone.jpg" alt="iPhone Prata" width="150">
+            <p>Prata</p>
+        </div>
+    </div>
+    <div class="result" id="result"></div>
+
+    <script>
+        function showResult(color) {
+            let resultText = '';
+            switch (color) {
+                case 'Azul':
+                    resultText = 'Você escolheu o Azul! Você é uma pessoa calma e serena.';
+                    break;
+                case 'Rosa':
+                    resultText = 'Você escolheu o Rosa! Você é uma pessoa alegre e cheia de vida.';
+                    break;
+                case 'Preto':
+                    resultText = 'Você escolheu o Preto! Você é sofisticada e elegante.';
+                    break;
+                case 'Prata':
+                    resultText = 'Você escolheu o Prata! Você é prática e moderna.';
+                    break;
+            }
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerText = resultText;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
